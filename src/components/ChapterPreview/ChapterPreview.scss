@@ -1,0 +1,208 @@
+// Chapter Preview Styles
+.chapter-preview-trigger {
+  display: contents;
+}
+
+.chapter-preview-popup {
+  width: 320px;
+  max-height: 400px;
+  background: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+
+  .preview-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--header-bg);
+
+    .preview-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin: 0 0 0.75rem 0;
+      line-height: 1.3;
+    }
+
+    .preview-badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+      .badge {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+
+        &.read-badge {
+          background: var(--success-bg);
+          color: var(--success-color);
+        }
+
+        &.favorite-badge {
+          background: rgba(255, 193, 7, 0.1);
+          color: #ffc107;
+        }
+
+        &.bookmark-badge {
+          background: var(--primary-color-alpha);
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+
+  .preview-meta {
+    padding: 0.75rem 1rem;
+    display: flex;
+    gap: 1rem;
+    background: var(--card-bg);
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+
+      svg {
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .preview-content {
+    padding: 1rem;
+
+    .preview-text {
+      color: var(--text-color);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin: 0;
+      text-align: justify;
+    }
+  }
+
+  .preview-note {
+    padding: 0 1rem 1rem 1rem;
+    border-top: 1px solid var(--border-color);
+    background: rgba(var(--primary-color), 0.05);
+
+    h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 0.75rem 0 0.5rem 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: var(--text-color);
+      margin: 0;
+      font-style: italic;
+      line-height: 1.4;
+    }
+  }
+
+  .preview-annotations {
+    padding: 0 1rem 1rem 1rem;
+    border-top: 1px solid var(--border-color);
+
+    h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin: 0.75rem 0 0.5rem 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .annotation-list {
+      .annotation-item {
+        margin-bottom: 0.5rem;
+
+        p {
+          font-size: 0.75rem;
+          color: var(--text-secondary);
+          margin: 0;
+          font-style: italic;
+          line-height: 1.3;
+        }
+      }
+
+      .more-annotations {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin: 0.5rem 0 0 0;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .preview-footer {
+    padding: 0.75rem 1rem;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+
+    .preview-hint {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+  }
+}
+
+// Dark theme adjustments
+[data-theme="dark"] {
+  .chapter-preview-popup {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .chapter-preview-popup {
+    width: 280px;
+    max-height: 350px;
+
+    .preview-header {
+      padding: 0.75rem;
+
+      .preview-title {
+        font-size: 0.875rem;
+      }
+    }
+
+    .preview-meta {
+      padding: 0.5rem 0.75rem;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .preview-content {
+      padding: 0.75rem;
+
+      .preview-text {
+        font-size: 0.8125rem;
+      }
+    }
+
+    .preview-note,
+    .preview-annotations {
+      padding: 0 0.75rem 0.75rem 0.75rem;
+    }
+
+    .preview-footer {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+}

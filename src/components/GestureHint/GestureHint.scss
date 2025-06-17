@@ -1,0 +1,128 @@
+// Gesture Hint Styles
+.gesture-hint-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  backdrop-filter: blur(4px);
+
+  .gesture-hint {
+    background: var(--modal-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 320px;
+    width: 90%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-color);
+
+    &.swipe {
+      max-width: 200px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .hint-content {
+      text-align: center;
+
+      .hint-icon {
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      h3 {
+        margin: 0 0 1.5rem 0;
+        color: var(--text-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .gesture-list {
+        text-align: left;
+        margin-bottom: 2rem;
+
+        .gesture-item {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1rem;
+          padding: 0.75rem;
+          background: var(--card-bg);
+          border-radius: 8px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .swipe-arrows {
+            display: flex;
+            gap: 0.25rem;
+            color: var(--primary-color);
+          }
+
+          svg {
+            color: var(--primary-color);
+            flex-shrink: 0;
+          }
+
+          span {
+            color: var(--text-color);
+            font-size: 0.875rem;
+            line-height: 1.4;
+          }
+        }
+      }
+
+      .got-it-btn {
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background: var(--primary-dark);
+        }
+      }
+
+      &.swipe-hint {
+        .swipe-animation {
+          margin-bottom: 1rem;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+
+          .swipe-indicator {
+            color: var(--primary-color);
+          }
+        }
+
+        p {
+          margin: 0;
+          color: var(--text-color);
+          font-size: 0.875rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+// Only show on mobile devices
+@media (min-width: 768px) {
+  .gesture-hint-overlay {
+    display: none;
+  }
+}

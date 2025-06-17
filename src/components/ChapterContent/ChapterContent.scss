@@ -1,0 +1,639 @@
+// Chapter Content Styles
+.chapter-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin-left: 320px;
+  transition: margin-left 0.3s ease;
+  background: var(--content-bg);
+
+  &.sidebar-collapsed {
+    margin-left: 60px;
+  }
+
+  &.no-chapter {
+    align-items: center;
+    justify-content: center;
+
+    .welcome-message {
+      text-align: center;
+      color: var(--text-secondary);
+
+      svg {
+        margin-bottom: 1rem;
+        opacity: 0.5;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .chapter-header {
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--header-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+
+    .chapter-info {
+      flex: 1;
+
+      .chapter-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+      }
+
+      .chapter-meta {
+        display: flex;
+        gap: 1.5rem;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+
+        .read-time {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+    }
+
+    .chapter-actions {
+      display: flex;
+      gap: 0.5rem;
+
+      .action-btn {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--border-color);
+        background: var(--button-bg);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--text-secondary);
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: var(--button-hover-bg);
+          color: var(--text-color);
+          border-color: var(--primary-color);
+        }
+
+        &.active {
+          background: var(--primary-color);
+          color: white;
+          border-color: var(--primary-color);
+        }
+      }
+    }
+  }
+
+  .content-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--scrollbar-track);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb);
+      border-radius: 4px;
+
+      &:hover {
+        background: var(--scrollbar-thumb-hover);
+      }
+    }
+
+    .chapter-text {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+      color: var(--text-color);
+
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--text-color);
+        margin: 2rem 0 1rem 0;
+        line-height: 1.3;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 1rem;
+      }
+
+      p {
+        margin: 1.5rem 0;
+        text-align: justify;
+      }
+
+      blockquote {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: var(--blockquote-bg);
+        border-left: 4px solid var(--primary-color);
+        border-radius: 0 8px 8px 0;
+        font-style: italic;
+
+        p {
+          margin: 0.5rem 0;
+        }
+      }
+
+      em {
+        font-style: italic;
+        color: var(--text-emphasis);
+      }
+
+      strong {
+        font-weight: 600;
+        color: var(--text-emphasis);
+      }
+    }
+
+    .chapter-navigation {
+      max-width: 800px;
+      margin: 4rem auto 2rem auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+
+      .nav-btn {
+        flex: 1;
+        max-width: 300px;
+        padding: 1.5rem;
+        border: 1px solid var(--border-color);
+        background: var(--button-bg);
+        border-radius: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: all 0.2s ease;
+        text-align: left;
+
+        &:hover {
+          background: var(--button-hover-bg);
+          border-color: var(--primary-color);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        &.next-btn {
+          margin-left: auto;
+          text-align: right;
+        }
+
+        .nav-info {
+          flex: 1;
+
+          .nav-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+          }
+
+          .nav-title {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-color);
+            line-height: 1.3;
+          }
+        }
+
+        svg {
+          color: var(--primary-color);
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+
+
+  // Font size variations
+  &[data-font-size="small"] .chapter-text {
+    font-size: 0.875rem !important;
+
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.25rem !important; }
+    p { font-size: 0.875rem !important; }
+  }
+
+  &[data-font-size="medium"] .chapter-text {
+    font-size: 1rem !important;
+
+    h1 { font-size: 2.5rem !important; }
+    h2 { font-size: 1.75rem !important; }
+    h3 { font-size: 1.5rem !important; }
+    p { font-size: 1rem !important; }
+  }
+
+  &[data-font-size="large"] .chapter-text {
+    font-size: 1.25rem !important;
+
+    h1 { font-size: 3rem !important; }
+    h2 { font-size: 2rem !important; }
+    h3 { font-size: 1.75rem !important; }
+    p { font-size: 1.25rem !important; }
+  }
+
+  // Font family variations
+  &[data-font-family="serif"] .chapter-text {
+    font-family: Georgia, 'Times New Roman', serif !important;
+  }
+
+  &[data-font-family="sans-serif"] .chapter-text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  }
+
+  &[data-font-family="monospace"] .chapter-text {
+    font-family: 'Courier New', Consolas, monospace !important;
+  }
+
+  // Line spacing variations
+  &[data-line-spacing="compact"] .chapter-text {
+    line-height: 1.3 !important;
+
+    p { line-height: 1.3 !important; }
+  }
+
+  &[data-line-spacing="normal"] .chapter-text {
+    line-height: 1.6 !important;
+
+    p { line-height: 1.6 !important; }
+  }
+
+  &[data-line-spacing="relaxed"] .chapter-text {
+    line-height: 2.2 !important;
+
+    p { line-height: 2.2 !important; }
+  }
+}
+
+// Reading Settings Panel
+.reading-settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  .reading-settings-panel {
+    background: var(--modal-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+    h3 {
+      margin: 0 0 1.5rem 0;
+      color: var(--text-color);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .setting-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+        font-weight: 500;
+        font-size: 0.875rem;
+      }
+
+      .setting-options {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        button {
+          padding: 0.5rem 1rem;
+          border: 1px solid var(--border-color);
+          background: var(--button-bg);
+          color: var(--text-color);
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 0.875rem;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: var(--button-hover-bg);
+            border-color: var(--primary-color);
+          }
+
+          &.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+          }
+        }
+      }
+    }
+
+    .close-btn {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background: var(--primary-dark);
+      }
+    }
+  }
+}
+
+// Responsive Design
+// Mobile Devices (0-767px)
+@media (max-width: 767px) {
+  .chapter-content {
+    margin-left: 0 !important;
+
+    .chapter-header {
+      padding: 1rem;
+      flex-direction: column;
+      gap: 1rem;
+
+      .chapter-info {
+        .chapter-title {
+          font-size: 1.25rem;
+          line-height: 1.2;
+          margin-bottom: 0.5rem;
+        }
+
+        .chapter-meta {
+          font-size: 0.8125rem;
+          gap: 1rem;
+
+          .read-time, .word-count {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+          }
+        }
+      }
+
+      .chapter-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        .action-btn {
+          width: 40px;
+          height: 40px;
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+
+    .content-container {
+      padding: 1rem;
+
+      .chapter-text {
+        h1 {
+          font-size: 1.75rem !important;
+        }
+
+        p {
+          font-size: 0.9375rem;
+          text-align: left;
+        }
+      }
+
+      .chapter-navigation {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 2rem 0 1rem 0;
+        padding: 0;
+        width: 100%;
+
+        .nav-btn {
+          max-width: none;
+          width: 100%;
+          min-height: 60px;
+          padding: 1rem;
+          font-size: 0.875rem;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: var(--card-bg);
+          border: 1px solid var(--border-color);
+          color: var(--text-color);
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: var(--hover-bg);
+            border-color: var(--primary-color);
+            transform: none;
+          }
+
+          &:active {
+            transform: scale(0.98);
+          }
+
+          &.prev-btn {
+            flex-direction: row;
+
+            svg {
+              margin-right: 0.75rem;
+            }
+          }
+
+          &.next-btn {
+            flex-direction: row-reverse;
+
+            svg {
+              margin-left: 0.75rem;
+            }
+          }
+
+          .nav-info {
+            flex: 1;
+            text-align: left;
+
+            .nav-label {
+              font-size: 0.75rem;
+              color: var(--text-secondary);
+              display: block;
+              margin-bottom: 0.25rem;
+            }
+
+            .nav-title {
+              font-size: 0.875rem;
+              line-height: 1.3;
+              font-weight: 500;
+              color: var(--text-color);
+              display: block;
+            }
+          }
+
+          svg {
+            width: 20px;
+            height: 20px;
+            color: var(--primary-color);
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+// Tablet Devices (768-1023px)
+@media (min-width: 768px) and (max-width: 1023px) {
+  .chapter-content {
+    margin-left: 280px;
+
+    &.sidebar-collapsed {
+      margin-left: 50px;
+    }
+
+    .chapter-header {
+      padding: 1.5rem;
+
+      .chapter-info .chapter-title {
+        font-size: 1.75rem;
+      }
+    }
+
+    .content-container {
+      padding: 1.5rem;
+
+      .chapter-text {
+        max-width: 700px;
+
+        h1 {
+          font-size: 2.25rem !important;
+        }
+      }
+
+      .chapter-navigation {
+        max-width: 700px;
+        margin: 3rem auto 1.5rem auto;
+      }
+    }
+
+
+  }
+}
+
+// Laptop Devices (1024-1439px)
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .chapter-content {
+    margin-left: 300px;
+
+    &.sidebar-collapsed {
+      margin-left: 55px;
+    }
+
+    .chapter-header {
+      padding: 1.75rem 2rem 1rem 2rem;
+
+      .chapter-info .chapter-title {
+        font-size: 1.875rem;
+      }
+    }
+
+    .content-container {
+      padding: 1.75rem;
+
+      .chapter-text {
+        max-width: 750px;
+      }
+
+      .chapter-navigation {
+        max-width: 750px;
+      }
+    }
+
+
+  }
+}
+
+// Desktop Devices (1440px+)
+@media (min-width: 1440px) {
+  .chapter-content {
+    margin-left: 340px;
+
+    &.sidebar-collapsed {
+      margin-left: 60px;
+    }
+
+    .chapter-header {
+      padding: 2rem 2.5rem 1.25rem 2.5rem;
+
+      .chapter-info .chapter-title {
+        font-size: 2.125rem;
+      }
+    }
+
+    .content-container {
+      padding: 2.5rem;
+
+      .chapter-text {
+        max-width: 900px;
+
+        h1 {
+          font-size: 2.75rem !important;
+        }
+      }
+
+      .chapter-navigation {
+        max-width: 900px;
+        margin: 4.5rem auto 2.5rem auto;
+      }
+    }
+
+
+  }
+}

@@ -1,0 +1,294 @@
+// Loading Spinner Styles
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  .spinner {
+    .spinner-circle {
+      border: 3px solid var(--border-color);
+      border-top: 3px solid var(--primary-color);
+      border-radius: 50%;
+    }
+  }
+
+  .loading-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  &.spinner-small {
+    .spinner-circle {
+      width: 20px;
+      height: 20px;
+    }
+    .loading-text {
+      font-size: 0.75rem;
+    }
+  }
+
+  &.spinner-medium {
+    .spinner-circle {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &.spinner-large {
+    .spinner-circle {
+      width: 48px;
+      height: 48px;
+    }
+    .loading-text {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Skeleton Loading Animations
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.skeleton-base {
+  background: var(--card-bg);
+  border-radius: 4px;
+  animation: skeleton-pulse 2s ease-in-out infinite;
+}
+
+// Chapter Skeleton
+.chapter-skeleton {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .skeleton-header {
+    margin-bottom: 2rem;
+
+    .skeleton-title {
+      @extend .skeleton-base;
+      height: 2.5rem;
+      width: 60%;
+      margin-bottom: 1rem;
+    }
+
+    .skeleton-meta {
+      display: flex;
+      gap: 1.5rem;
+
+      .skeleton-meta-item {
+        @extend .skeleton-base;
+        height: 1rem;
+        width: 80px;
+      }
+    }
+  }
+
+  .skeleton-content {
+    .skeleton-line {
+      @extend .skeleton-base;
+      height: 1rem;
+      margin-bottom: 1rem;
+
+      &:nth-child(even) {
+        animation-delay: 0.1s;
+      }
+
+      &:nth-child(3n) {
+        animation-delay: 0.2s;
+      }
+    }
+  }
+}
+
+// Sidebar Skeleton
+.sidebar-skeleton {
+  padding: 1rem;
+
+  .skeleton-header {
+    margin-bottom: 1.5rem;
+
+    .skeleton-book-title {
+      @extend .skeleton-base;
+      height: 1.5rem;
+      width: 80%;
+      margin-bottom: 0.5rem;
+    }
+
+    .skeleton-progress {
+      @extend .skeleton-base;
+      height: 6px;
+      width: 100%;
+    }
+  }
+
+  .skeleton-search {
+    @extend .skeleton-base;
+    height: 2.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .skeleton-chapters {
+    .skeleton-chapter {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+
+      .skeleton-chapter-title {
+        @extend .skeleton-base;
+        height: 1rem;
+        width: 70%;
+        margin-bottom: 0.5rem;
+      }
+
+      .skeleton-chapter-meta {
+        @extend .skeleton-base;
+        height: 0.75rem;
+        width: 40%;
+      }
+
+      &:nth-child(even) {
+        .skeleton-chapter-title,
+        .skeleton-chapter-meta {
+          animation-delay: 0.1s;
+        }
+      }
+
+      &:nth-child(3n) {
+        .skeleton-chapter-title,
+        .skeleton-chapter-meta {
+          animation-delay: 0.2s;
+        }
+      }
+    }
+  }
+}
+
+// Error State Styles
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+
+  .error-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .error-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .error-message {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+
+    .retry-btn {
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background: var(--primary-dark);
+      }
+    }
+
+    .secondary-btn {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: var(--hover-bg);
+        border-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+// Empty State Styles
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+
+  .empty-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .empty-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-message {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+
+  .empty-action {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: var(--primary-dark);
+    }
+  }
+}
