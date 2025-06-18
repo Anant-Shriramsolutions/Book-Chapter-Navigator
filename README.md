@@ -2,6 +2,13 @@
 
 A comprehensive, feature-rich book reading application built with React 18+, featuring an immersive reading experience with advanced progress tracking, customizable themes, and responsive design. This application provides a modern, accessible reading interface with floating action buttons, smooth animations, and persistent user preferences.
 
+## 📽 Demo
+
+🎥 [Watch Demo Video](https://github.com/Anant-Shriramsolutions/Book-Chapter-Navigator/releases/download/v1.0.0/demo.mp4)
+
+You can watch a quick walkthrough of the **Book Chapter Navigator** app by clicking the link above. It demonstrates all core and advanced features in action.
+
+
 ## 📋 Table of Contents
 - [Feature Summary](#-feature-summary)
 - [GPT Usage Notes](#-gpt-usage-notes)
