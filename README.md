@@ -4,10 +4,9 @@ A comprehensive, feature-rich book reading application built with React 18+, fea
 
 ## 📽 Demo
 
-[![Watch the demo](https://img.icons8.com/ios-filled/100/play-button-circled.png)](https://github.com/Anant-Shriramsolutions/Book-Chapter-Navigator/releases/download/v1.0.0/assignment_0KjgZTIP.mp4)
+[![Watch the demo](https://img.icons8.com/ios-filled/100/play-button-circled.png)](https://github.com/Anant-Shriramsolutions/Book-Chapter-Navigator/releases/download/v1.0.0/VID-20250618-WA0002.mp4)
 
-Click above to watch the full walkthrough of the **Book Chapter Navigator** project.
-
+Click the image above to watch the complete walkthrough of the **Book Chapter Navigator** React project.
 
 
 ## 📋 Table of Contents
