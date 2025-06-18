@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ArrowUp, 
-  ChevronLeft, 
-  ChevronRight, 
-  BookOpen, 
+import {
+  ArrowUp,
+  ChevronLeft,
+  ChevronRight,
+  BookOpen,
   Clock,
   Eye,
   EyeOff,
@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import useBookStore from '../../store/useBookStore';
 import { getChapterById, getNextChapter, getPreviousChapter, bookData } from '../../data/mockData';
+import NotesPanel from '../NotesPanel/NotesPanel';
 import './ChapterContent.scss';
 
 const ChapterContent = () => {
@@ -185,6 +186,14 @@ const ChapterContent = () => {
 
           <button
             className="action-btn"
+            onClick={() => setShowNotes(!showNotes)}
+            title="Notes & Annotations"
+          >
+            <MessageSquare size={18} />
+          </button>
+
+          <button
+            className="action-btn"
             onClick={() => setShowSettings(!showSettings)}
             title="Reading settings"
           >
@@ -199,6 +208,13 @@ const ChapterContent = () => {
           <ReadingSettings onClose={() => setShowSettings(false)} />
         )}
       </AnimatePresence>
+
+      {/* Notes Panel */}
+      <NotesPanel
+        chapterId={currentChapter}
+        isOpen={showNotes}
+        onClose={() => setShowNotes(false)}
+      />
 
       {/* Chapter Content */}
       <div className="content-container" ref={contentRef}>
